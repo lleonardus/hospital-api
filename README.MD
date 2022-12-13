@@ -10,7 +10,7 @@ Através dessa api é possível criar, listar e atualizar clientes.
 
 ```shell
 $ git clone https://github.com/lleonardus/hospital-api.git
-$ cd hospital
+$ cd hospital-api
 ```
 ### 🐳Utilizando Docker
  ```shell
