@@ -1,0 +1,14 @@
+C:\Users\leona\Desktop\Portfólio\hospital\src\main\java\com\leonardus\hospital\service\ClientService.java
+C:\Users\leona\Desktop\Portfólio\hospital\src\main\java\com\leonardus\hospital\entities\Client.java
+C:\Users\leona\Desktop\Portfólio\hospital\src\main\java\com\leonardus\hospital\entities\enums\Gender.java
+C:\Users\leona\Desktop\Portfólio\hospital\src\main\java\com\leonardus\hospital\repository\ClientRepository.java
+C:\Users\leona\Desktop\Portfólio\hospital\src\main\java\com\leonardus\hospital\controller\excepions\ControllerExceptionHandler.java
+C:\Users\leona\Desktop\Portfólio\hospital\src\main\java\com\leonardus\hospital\HospitalApplication.java
+C:\Users\leona\Desktop\Portfólio\hospital\src\main\java\com\leonardus\hospital\config\ModelMapperConfig.java
+C:\Users\leona\Desktop\Portfólio\hospital\src\main\java\com\leonardus\hospital\dtos\DiseaseDTO.java
+C:\Users\leona\Desktop\Portfólio\hospital\src\main\java\com\leonardus\hospital\config\DataBaseConfig.java
+C:\Users\leona\Desktop\Portfólio\hospital\src\main\java\com\leonardus\hospital\service\exceptions\ObjectNotFoundException.java
+C:\Users\leona\Desktop\Portfólio\hospital\src\main\java\com\leonardus\hospital\controller\excepions\StandardError.java
+C:\Users\leona\Desktop\Portfólio\hospital\src\main\java\com\leonardus\hospital\controller\ClientController.java
+C:\Users\leona\Desktop\Portfólio\hospital\src\main\java\com\leonardus\hospital\entities\Disease.java
+C:\Users\leona\Desktop\Portfólio\hospital\src\main\java\com\leonardus\hospital\dtos\ClientDTO.java

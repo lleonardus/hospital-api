@@ -1,0 +1,16 @@
+com\leonardus\hospital\controller\excepions\StandardError$StandardErrorBuilder.class
+com\leonardus\hospital\dtos\ClientDTO.class
+com\leonardus\hospital\service\exceptions\ObjectNotFoundException.class
+com\leonardus\hospital\entities\Client.class
+com\leonardus\hospital\dtos\DiseaseDTO.class
+com\leonardus\hospital\entities\Disease.class
+com\leonardus\hospital\entities\Client$ClientBuilder.class
+com\leonardus\hospital\entities\enums\Gender.class
+com\leonardus\hospital\controller\excepions\StandardError.class
+com\leonardus\hospital\service\ClientService.class
+com\leonardus\hospital\controller\ClientController.class
+com\leonardus\hospital\repository\ClientRepository.class
+com\leonardus\hospital\HospitalApplication.class
+com\leonardus\hospital\config\ModelMapperConfig.class
+com\leonardus\hospital\config\DataBaseConfig.class
+com\leonardus\hospital\controller\excepions\ControllerExceptionHandler.class

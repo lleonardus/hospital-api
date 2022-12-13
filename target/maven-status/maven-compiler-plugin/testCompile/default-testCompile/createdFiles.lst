@@ -1,0 +1,4 @@
+com\leonardus\hospital\factory\ClientFactory.class
+com\leonardus\hospital\service\ClientServiceTest.class
+com\leonardus\hospital\controller\ClientControllerTest.class
+com\leonardus\hospital\HospitalApplicationTests.class
