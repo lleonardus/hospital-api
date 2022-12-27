@@ -2,7 +2,6 @@ package com.leonardus.hospital.service;
 
 import com.leonardus.hospital.dtos.ClientDTO;
 import com.leonardus.hospital.entities.Client;
-import com.leonardus.hospital.entities.Disease;
 import com.leonardus.hospital.repository.ClientRepository;
 import com.leonardus.hospital.service.exceptions.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
@@ -49,7 +48,7 @@ public class ClientService {
     private void sortByHigherHealthRisk(List<Client> clients){
         for (int i = 0; i < clients.size() - 1; i++){
             for (int j = i + 1; j < clients.size(); j++){
-                if(this.riskCoefficient(clients.get(i)) < this.riskCoefficient(clients.get(j))){
+                if(clients.get(i).riskCoefficient() < clients.get(j).riskCoefficient()){
                     Client temp = clients.get(i);
                     clients.set(i, clients.get(j));
                     clients.set(j, temp);
@@ -58,9 +57,4 @@ public class ClientService {
         }
     }
 
-    private double riskCoefficient(Client client){
-        int degreeSum = client.getDiseases().stream().map(Disease::getDegree).reduce(0, Integer::sum);
-
-        return (1 / (1 + Math.pow(Math.E, -(-2.8 + degreeSum)))) * 100;
-    }
 }

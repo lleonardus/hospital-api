@@ -42,4 +42,10 @@ public class Client {
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    public double riskCoefficient(){
+        int degreeSum = this.getDiseases().stream().map(Disease::getDegree).reduce(0, Integer::sum);
+
+        return (1 / (1 + Math.pow(Math.E, -(-2.8 + degreeSum)))) * 100;
+    }
 }

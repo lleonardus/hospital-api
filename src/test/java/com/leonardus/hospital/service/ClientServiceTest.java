@@ -17,6 +17,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.IntPredicate;
+import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.anyLong;
@@ -62,12 +64,11 @@ class ClientServiceTest {
     @Test
     void higherHealthRisk_ReturnsAListOfClientsSortedByHealthRisk() {
         List<Client> response = service.higherHealthRisk();
+        IntPredicate isSorted = i -> response.get(i).riskCoefficient() >= response.get(i + 1).riskCoefficient();
 
         assertNotNull(response);
         assertEquals(clients.size(), response.size());
-        assertEquals("First", response.get(0).getName());
-        assertEquals("Second", response.get(1).getName());
-        assertEquals("Third", response.get(2).getName());
+        assertTrue(IntStream.range(0, response.size() - 1).allMatch(isSorted));
     }
 
     @Test
