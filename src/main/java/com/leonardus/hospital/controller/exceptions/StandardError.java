@@ -1,4 +1,4 @@
-package com.leonardus.hospital.controller.excepions;
+package com.leonardus.hospital.controller.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

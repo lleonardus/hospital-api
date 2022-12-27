@@ -1,4 +1,4 @@
-package com.leonardus.hospital.controller.excepions;
+package com.leonardus.hospital.controller.exceptions;
 
 import com.leonardus.hospital.service.exceptions.ObjectNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
