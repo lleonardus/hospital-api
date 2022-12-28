@@ -3,11 +3,13 @@ package com.leonardus.hospital.service;
 import com.leonardus.hospital.dtos.ClientDTO;
 import com.leonardus.hospital.entities.Client;
 import com.leonardus.hospital.repository.ClientRepository;
+import com.leonardus.hospital.service.comparator.ClientHealthRiskComparator;
 import com.leonardus.hospital.service.exceptions.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -22,8 +24,12 @@ public class ClientService {
 
     public List<Client> higherHealthRisk(){
         List<Client> clients = repository.findAll();
-        this.sortByHigherHealthRisk(clients);
-        return clients.subList(0, Math.min(clients.size(), 10));
+        Comparator<Client> clientComparator = new ClientHealthRiskComparator();
+        int limit = Math.min(clients.size(), 10);
+
+        return clients.stream().sorted(clientComparator.reversed())
+                .toList()
+                .subList(0, limit);
     }
 
     public Client findById(Long id){
@@ -44,17 +50,4 @@ public class ClientService {
 
         return repository.save(client);
     }
-
-    private void sortByHigherHealthRisk(List<Client> clients){
-        for (int i = 0; i < clients.size() - 1; i++){
-            for (int j = i + 1; j < clients.size(); j++){
-                if(clients.get(i).riskCoefficient() < clients.get(j).riskCoefficient()){
-                    Client temp = clients.get(i);
-                    clients.set(i, clients.get(j));
-                    clients.set(j, temp);
-                }
-            }
-        }
-    }
-
 }
