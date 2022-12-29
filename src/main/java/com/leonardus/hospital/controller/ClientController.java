@@ -3,6 +3,7 @@ package com.leonardus.hospital.controller;
 import com.leonardus.hospital.dtos.ClientDTO;
 import com.leonardus.hospital.entities.Client;
 import com.leonardus.hospital.service.ClientService;
+import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -42,7 +43,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<ClientDTO> create(@RequestBody ClientDTO clientDTO){
+    public ResponseEntity<ClientDTO> create(@Valid @RequestBody ClientDTO clientDTO){
         Client client = service.create(clientDTO);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
                 .path("/{id}").buildAndExpand(client.getId()).toUri();
@@ -51,7 +52,7 @@ public class ClientController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ClientDTO> update(@PathVariable Long id, @RequestBody ClientDTO clientDTO){
+    public ResponseEntity<ClientDTO> update(@PathVariable Long id, @Valid @RequestBody ClientDTO clientDTO){
         Client client = service.update(id, clientDTO);
 
         return ResponseEntity.ok().body(mapper.map(client, ClientDTO.class));

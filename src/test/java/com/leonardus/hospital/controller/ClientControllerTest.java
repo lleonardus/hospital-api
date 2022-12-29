@@ -2,6 +2,7 @@ package com.leonardus.hospital.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.leonardus.hospital.dtos.ClientDTO;
+import com.leonardus.hospital.dtos.DiseaseDTO;
 import com.leonardus.hospital.entities.Client;
 import com.leonardus.hospital.factory.ClientFactory;
 import com.leonardus.hospital.service.ClientService;
@@ -91,13 +92,35 @@ class ClientControllerTest {
     }
 
     @Test
-    void create_ReturnsAClientDTO() throws Exception{
+    void create_WhenSuccessful_ReturnsAClientDTO() throws Exception{
         mockMvc.perform(MockMvcRequestBuilders.post("/clients")
                         .content(objectMapper.writeValueAsString(clientDTO))
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.header().exists("Location"))
                 .andExpect(MockMvcResultMatchers.status().isCreated());
+    }
+
+    @Test
+    void create_WhenDegreeIsLessThanOne_ThrowsAMethodArgumentNotValidException() throws Exception{
+        clientDTO.getDiseases().add(new DiseaseDTO(3L, "diabetes", 0));
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/clients")
+                        .content(objectMapper.writeValueAsString(clientDTO))
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isBadRequest());
+    }
+
+    @Test
+    void create_WhenDegreeIsGreaterThanTwo_ThrowsAMethodArgumentNotValidException() throws Exception{
+        clientDTO.getDiseases().add(new DiseaseDTO(3L, "diabetes", 3));
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/clients")
+                        .content(objectMapper.writeValueAsString(clientDTO))
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 
     @Test

@@ -1,6 +1,7 @@
 package com.leonardus.hospital.dtos;
 
 import com.leonardus.hospital.entities.enums.Gender;
+import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,6 +17,7 @@ public class ClientDTO {
     private String name;
     private Date birthday;
     private Gender gender;
+    @Valid
     private Set<DiseaseDTO> diseases;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
