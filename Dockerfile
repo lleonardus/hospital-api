@@ -1,4 +1,11 @@
+FROM maven AS MAVEN_BUILD
+
+COPY ./ ./
+
+RUN mvn clean package
+
 FROM openjdk
-WORKDIR /app
-COPY /target/hospital-0.0.1-SNAPSHOT.jar /app/hospital.jar
-ENTRYPOINT ["java", "-jar", "/app/hospital.jar"]
+
+COPY --from=MAVEN_BUILD /target/hospital-0.0.1-SNAPSHOT.jar /app.jar
+
+CMD ["java", "-jar", "/app.jar"]
