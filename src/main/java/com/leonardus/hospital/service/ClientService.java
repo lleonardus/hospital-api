@@ -25,11 +25,10 @@ public class ClientService {
     public List<Client> higherHealthRisk(){
         List<Client> clients = repository.findAll();
         Comparator<Client> clientComparator = new ClientHealthRiskComparator();
-        int limit = Math.min(clients.size(), 10);
 
         return clients.stream().sorted(clientComparator.reversed())
-                .toList()
-                .subList(0, limit);
+                .limit(10)
+                .toList();
     }
 
     public Client findById(Long id){
