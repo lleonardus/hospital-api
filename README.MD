@@ -1,7 +1,7 @@
 # 👨‍💻Sobre o projeto
 "Hospital" é uma API REST que torna possível criar, listar e atualizar clientes de um hospital.
 
-A API foi inspirada em um desafio técnico da [Oli Saúde](https://github.com/olisaude/teste-dev-backend).
+A API foi inspirada num desafio técnico da [Oli Saúde](https://github.com/olisaude/teste-dev-backend).
 
 ## 💿Como rodar na sua máquina
 
@@ -9,7 +9,7 @@ A API foi inspirada em um desafio técnico da [Oli Saúde](https://github.com/ol
 
 - **Git**;
 - **Docker + Docker-Compose (caso queira utilizar Docker)**;
-- **Java 17 (caso queira utilizar o Maven)**
+- **Java 17 + Maven (caso queira utilizar o Maven)**
 
 <details>
     <summary><b style="font-size:1.4em;">🐳Utilizando Docker</b></summary>
@@ -40,7 +40,7 @@ $ git clone https://github.com/lleonardus/hospital-api.git
 $ cd hospital-api
 
 # Inicie o projeto usando Maven
-$ ./mvnw spring-boot:run
+$ mvn spring-boot:run
 ```
 
 Após esse processo, a API vai estar rodando em **http://localhost:8080**
